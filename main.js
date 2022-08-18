@@ -1,15 +1,29 @@
 class ModalVivienda {
     constructor(texto, urlPagina) {
-        console.log(`${texto} ${window.location.pathname}`)
-        if(urlPagina == window.location.pathname) {
-            let container = document.createElement('div')
-            container.innerHTML = this.modalImagen()
-            document.body.insertBefore(container, document.main)
+        let container = document.createElement('div')
+        this.container = container
+        this.texto = texto
+        this.urlPagina = urlPagina
+    }
+    validatePathname() {
+        
+    }
+    modalImagen() {
+        if(this.urlPagina == window.location.pathname) {
+            this.container.innerHTML = `Hola desde el Modal Imagen`
+            document.body.insertBefore(this.container, document.main)
         } else  {
             console.log("No tiene modal")
         }
     }
-    modalImagen(texto) { 
-        return `<p>${this.texto} Esto es un modal imagen</p>`
+    modalTexto() {
+        if(this.urlPagina == window.location.pathname) {
+            this.container.innerHTML = `Hola desde el modal texto`
+            document.body.insertBefore(this.container, document.main)
+        } else  {
+            console.log("No tiene modal")
+        }
     }
 }
+
+
